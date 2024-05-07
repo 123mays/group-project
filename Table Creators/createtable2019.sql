@@ -22,5 +22,5 @@ CREATE TABLE nineteentable (
   questionid text,
   datavaluetypeid text,
   stratificationcategoryid1 text,
-  stratificationid1
+  stratificationid1 text
   );
