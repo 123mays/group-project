@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS nineteentable;
 CREATE TABLE nineteentable (
-  year real,
+  year int,
   yearend real,
   locationabbr text,
   locationdesc text,
@@ -22,5 +22,5 @@ CREATE TABLE nineteentable (
   questionid text,
   datavaluetypeid text,
   stratificationcategoryid1 text,
-  stratificationid1 text
+  stratificationid1
   );

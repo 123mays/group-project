@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS eighteentable;
 CREATE TABLE eighteentable (
-  year real,
+  year int,
   yearend real,
   locationabbr text,
   locationdesc text,

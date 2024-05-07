@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS twentytable;
 CREATE TABLE twentytable (
-  year real,
+  year int,
   yearend real,
   locationabbr text,
   locationdesc text,
