@@ -23,4 +23,4 @@ CREATE TABLE twentytable (
   datavaluetypeid text,
   stratificationcategoryid1 text,
   stratificationid1
-);
+  );

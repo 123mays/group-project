@@ -23,4 +23,4 @@ CREATE TABLE nineteentable (
   datavaluetypeid text,
   stratificationcategoryid1 text,
   stratificationid1
-);
+  );

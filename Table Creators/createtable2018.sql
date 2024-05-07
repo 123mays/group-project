@@ -23,4 +23,4 @@ CREATE TABLE eighteentable (
   datavaluetypeid text,
   stratificationcategoryid1 text,
   stratificationid1
-);
+  );
