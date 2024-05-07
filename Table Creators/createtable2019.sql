@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS 2019table;
-CREATE TABLE 2019table (
+DROP TABLE IF EXISTS nineteentable;
+CREATE TABLE nineteentable (
   year real,
   yearend real,
   locationabbr text,
