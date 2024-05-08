@@ -150,7 +150,7 @@ def query_db():
 	cur.execute("select topic from twentyonetable where topic = 'Mental Health'")
 	result = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Cancer'")
-	result = cur.fetchone()
+	result1 = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Cardiovascular Disease'")
 	result = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Chronic Obstructive Pulmonary Disease'")
@@ -174,6 +174,7 @@ def query_db():
 	cur.execute("select topic from twentyonetable where topic = 'Diabetes'")
 	result = cur.fetchone()
 
+    print(result1)
 
 	cur.close()
 	conn.close()
