@@ -2,13 +2,13 @@ import psycopg2
 
 
 def query_db():
-    conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        database="akeelh",
-        user="akeelh",
-        password="spring482farm")
-    cur = conn.cursor()
+	conn = psycopg2.connect(
+		host="localhost",
+		port=5432,
+		database="akeelh",
+		user="akeelh",
+		password="spring482farm")
+	cur = conn.cursor()
 
 
 # Queries for 2018 table
@@ -174,7 +174,7 @@ def query_db():
 	cur.execute("select topic from twentyonetable where topic = 'Diabetes'")
 	result = cur.fetchone()
 
-    print(result1)
+	print(result1)
 
 	cur.close()
 	conn.close()
