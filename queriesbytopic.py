@@ -2,13 +2,13 @@ import psycopg2
 
 
 def query_db():
-    conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        database="akeelh",
-        user="akeelh",
-        password="spring482farm")
-    cur = conn.cursor()
+	conn = psycopg2.connect(
+		host="localhost",
+		port=5432,
+		database="akeelh",
+		user="akeelh",
+		password="spring482farm")
+	cur = conn.cursor()
 
 
 # Queries for 2018 table
@@ -150,10 +150,10 @@ def query_db():
 	cur.execute("select topic from twentyonetable where topic = 'Mental Health'")
 	result = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Cancer'")
-    result1 = cur.fetchone()
+	result1 = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Cardiovascular Disease'")
-    result = cur.fetchone()
-    cur.execute("select topic from twentyonetable where topic = 'Chronic Obstructive Pulmonary Disease'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentyonetable where topic = 'Chronic Obstructive Pulmonary Disease'")
 	result = cur.fetchone()
 	cur.execute("select topic from twentyonetable where topic = 'Tobacco'")
 	result = cur.fetchone()
@@ -174,7 +174,48 @@ def query_db():
 	cur.execute("select topic from twentyonetable where topic = 'Diabetes'")
 	result = cur.fetchone()
 
-    print(result1)
+# Queries for 2022 table
+	cur.execute("select topic from twentytwotable where topic = 'Health Status'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Arthritis'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Disability'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Alcohol'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Oral Health'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Asthma'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Mental Health'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Cancer'")
+	result1 = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Cardiovascular Disease'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Chronic Obstructive Pulmonary Disease'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Tobacco'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Nutrition, Physical Activity, and Weight Status'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Diabetes'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Cognitive Health and Caregiving'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Social Determinants of Health'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Immunization'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Maternal Health'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Sleep'")
+	result = cur.fetchone()
+	cur.execute("select topic from twentytwotable where topic = 'Diabetes'")
+	result = cur.fetchone()
+
+
+	print(result1)
 
 	cur.close()
 	conn.close()

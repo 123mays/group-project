@@ -52,7 +52,15 @@ def query_db():
 	cur.execute("select stratificationcategory1 from twentyonetable where tratificationategory1 = 'Race/Ethnicity'")
 	result = cur.fetchone()
 
-
+# Queries for 2022 table
+	cur.execute("select stratificationcategory1 from twentytwotable where tratificationategory1 = 'Overall'")
+	result = cur.fetchone()
+	cur.execute("select stratificationcategory1 from twentytwotable where tratificationategory1 = 'Age'")
+	result = cur.fetchone()
+	cur.execute("select stratificationcategory1 from twentytwotable where tratificationategory1 = 'Sex'")
+	result = cur.fetchone()
+	cur.execute("select stratificationcategory1 from twentytwotable where tratificationategory1 = 'Race/Ethnicity'")
+	result = cur.fetchone()
 	cur.close()
 	conn.close()
 
