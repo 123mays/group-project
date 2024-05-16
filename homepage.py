@@ -34,7 +34,7 @@ def get_other_options():
     html = "".join([f'<option value="{option}">{option}</option>\n' for option in options])
     return html
 
-@app.route('/')
+@app.route('/test')
 def welcome():
     year_options = get_year_options()
     age_options = get_age_options()
