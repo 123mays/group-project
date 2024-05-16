@@ -1,74 +1,54 @@
-from flask import Flask
-from flask import render_template
-import psycopg2;
-import json;
+from flask import Flask, render_template
+import psycopg2
 
 app = Flask(__name__)
 
-
-def get_name_options():
-    
-    conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        database="akeelh",
-        user="akeelh",
-        password="spring482farm")
-    
-    cur = conn.cursor()
-
-    query = "SELECT last, first FROM Employee ORDER BY last";
-    cur.execute(query)
-    
-    rows = cur.fetchall()
-
-    html = ""
-    for row in rows:
-        last = row[0]
-        first = row[1]
-
-        #Here is more info on Python's Formatted Strings
-        #    https://docs.python.org/3/tutorial/inputoutput.html
-        html = html + f'<option value="{first} {last}">{last}</option>'
-
-        #Backslash n in a string means New Line
-        html = html + '\n'
-    
+def get_year_options():
+    years = ['2018', '2019','2020','2021', '2022']
+    html = "".join([f'<option value="{year}">{year}</option>\n' for year in years])
     return html
 
+def get_age_options():
+    ages = ['0-18', '19-35', '36-50', '51-65', '65+']
+    html = "".join([f'<option value="{age}">{age}</option>\n' for age in ages])
+    return html
 
+def get_disease_options():
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5221,
+        database="neiroukhm",
+        user="neiroukhm",
+        password="spring847eyebrow"
+    )
+    cur = conn.cursor()
+    query = "SELECT DISTINCT disease FROM topic ORDER BY topic"
+    cur.execute(query)
+    rows = cur.fetchall()
+    html = "".join([f'<option value="{row[0]}">{row[0]}</option>\n' for row in rows])
+    conn.close()
+    return html
+
+def get_other_options():
+    options = ['Option1', 'Option2', 'Option3']
+    html = "".join([f'<option value="{option}">{option}</option>\n' for option in options])
+    return html
 
 @app.route('/')
 def welcome():
+    year_options = get_year_options()
+    age_options = get_age_options()
+    disease_options = get_disease_options()
+    other_options = get_other_options()
 
-    html_string = get_name_options()
-
-
-    # IMPORTANT: The only reason that this works is because
-    #   In the Template, I marked DropdownOptions as "Safe"
-    #   This tells Flasks that it is safe to insert HTML code into that
-    #   location in the template
-    return render_template("homepage.html", DropdownOptions = html_string)
-
-
-@app.route('/insert/<first_name>/<last_name>/')
-def insert_name(first_name,last_name):
-
-    conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        database="mlepinski",
-        user="mlepinski",
-        password="nunuiscute")
-    
-    cur = conn.cursor()
-
-    query = "INSERT INTO Employee (last, first) VALUES (%s, %s)";
-    cur.execute(query, (last_name, first_name))
-    conn.commit()
-
+    return render_template(
+        "homepage.html", 
+        YearOptions=year_options, 
+        AgeOptions=age_options, 
+        DiseaseOptions=disease_options, 
+        OtherOptions=other_options
+    )
 
 if __name__ == '__main__':
-    my_port = 5121
-    app.run(host='0.0.0.0', port = my_port) 
-
+    my_port = 5221
+    app.run(host='0.0.0.0', port=my_port)
