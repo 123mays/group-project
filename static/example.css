@@ -13,12 +13,13 @@ select{
   font-family: "Lucida Console", Lucida, Monospace;
   color: rgb(245, 249, 248);
   background: rgb(152, 212, 202);
+  border-radius: 15px;
 }
 
 
 button {
     font-family: "Lucida Console", Lucida, Monospace;
     color: rgb(245, 249, 248);
-    background: rgb(152, 212, 202)
+    background: rgb(152, 212, 202);
+    border-radius: 15px;
 }
-
