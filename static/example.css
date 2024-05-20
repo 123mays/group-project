@@ -1,1 +1,9 @@
-adfgagagag
+body {
+  background-image: "/static/background";
+}
+
+
+html {
+  font-family: "Lucida Console", Lucida, Monospace;
+}
+
