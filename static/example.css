@@ -8,3 +8,17 @@ html {
   color: rgb(245, 249, 248);
 }
 
+
+select{
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: rgb(245, 249, 248);
+  background: rgb(152, 212, 202);
+}
+
+
+button {
+    font-family: "Lucida Console", Lucida, Monospace;
+    color: rgb(245, 249, 248);
+    background: rgb(152, 212, 202)
+}
+
