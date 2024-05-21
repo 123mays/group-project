@@ -20,3 +20,24 @@ button {
   background: rgb(152, 212, 202);
   border-radius: 15px;
 }
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height viewport */
+}
+
+.big-button {
+  font-size: 1.5em; /* Increase font size */
+  padding: 20px 40px; /* Increase padding */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.big-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
