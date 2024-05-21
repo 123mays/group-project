@@ -1,33 +1,22 @@
 body {
-  background-image: url("/static/background.jpg"); /* Use a relevant background image */
-  background-color: #f4f4f9; /* Light background color to enhance readability */
-  color: #333; /* Darker font color for better contrast */
+  background-image: url("/static/background.jpg");
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif; /* Clean and professional font */
-  color: #333;
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: rgb(200, 200, 200);
 }
 
 select {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  background: #e0e0e0; /* Neutral background color */
-  border-radius: 20 px; /*  border radius */
-  border: 1px solid #ccc; /* Light border for definition */
-  padding: 5px; /* Added padding for better usability */
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: rgb(200, 200, 200);
+  background: rgb(152, 212, 202);
+  border-radius: 15px;
 }
 
 button {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fff; /* White font color for buttons */
-  background: #007bff; /* Primary blue color for buttons */
-  border-radius: 20px;
-  border: none; /* Remove default border */
-  padding: 10px 20px; /* Added padding for better usability */
-  cursor: pointer; /* Pointer cursor to indicate interactivity */
-}
-
-button:hover {
-  background: #0056b3; /* Darker blue on hover for visual feedback */
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: rgb(200, 200, 200);
+  background: rgb(152, 212, 202);
+  border-radius: 15px;
 }
