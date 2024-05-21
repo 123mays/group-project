@@ -13,7 +13,7 @@ select {
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
   background: #e0e0e0; /* Neutral background color */
-  border-radius: 5px; /* Subtle border radius */
+  border-radius: 20 px; /*  border radius */
   border: 1px solid #ccc; /* Light border for definition */
   padding: 5px; /* Added padding for better usability */
 }
