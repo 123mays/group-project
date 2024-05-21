@@ -22,7 +22,7 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   color: #fff; /* White font color for buttons */
   background: #007bff; /* Primary blue color for buttons */
-  border-radius: 5px;
+  border-radius: 20px;
   border: none; /* Remove default border */
   padding: 10px 20px; /* Added padding for better usability */
   cursor: pointer; /* Pointer cursor to indicate interactivity */
