@@ -1,24 +1,22 @@
 <head>
   <link rel="stylesheet" href="/static/example.css">
-
   <script src="/static/example.js"></script>
 </head>
 
-
-<h1 class="my-class" id="hello">
-  USA Chronic Disease Indicator
-</h1>
-
 <body>
-<p>
-<label for="Strat_1">Select Stratification:</label> 
+  <h1 class="my-class" id="hello">
+    USA Chronic Disease Indicator
+  </h1>
+
+  <p>
+    <label for="Strat_1">Select Stratification:</label> 
 
     <select name="Year" id="Year">
         <option value="2018">2018</option>
         <option value="2019">2019</option>
-	<option value="2020">2020</option>
-	<option value="2021">2021</option>
-	<option value="2022">2022</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
     </select>
 
     <select name="Age" id="Age"> 
@@ -34,12 +32,10 @@
         <option value="Age >= 65y">Age >= 65y</option>
     </select>
 
-
     <select name="Sex" id="Sex"> 
         <option value="Female">Female</option> 
         <option value="Male">Male</option> 
     </select>
-
 
     <select name="Race/Ethnicity" id="Race/Ethnicity"> 
         <option value="White, non-Hispanic">White, non-Hispanic</option> 
@@ -51,7 +47,6 @@
         <option value="Multiracial, non-Hispanic">Multiracial, non-Hispanic</option>
         <option value="Hispanic">Hispanic</option>
     </select>
-
 
     <select name="Grade" id="Grade"> 
         <option value="9th Grade">9th Grade</option> 
@@ -114,7 +109,6 @@
         <option value="Wyoming">Wyoming</option> 
     </select>
 
-
     <select name="Topic" id="Topic">
         <option value="Alcohol">Alcohol</option>
         <option value="Arthritis">Arthritis</option>
@@ -136,10 +130,11 @@
         <option value="Social Determinants of Health">Social Determinants of Health</option>
         <option value="Tobacco">Tobacco</option>
     </select>
-</p>
+  </p>
 
-
-<button class="big-button" onclick="addDropdownItem()">
-   Enter
-</button>
+  <div class="center-container">
+    <button class="big-button" onclick="addDropdownItem()">
+      Enter
+    </button>
+  </div>
 </body>
