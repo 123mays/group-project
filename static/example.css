@@ -32,7 +32,7 @@ button {
   font-size: 1.5em; /* Increase font size */
   padding: 20px 40px; /* Increase padding */
   border-radius: 10px; /* Optional: Add rounded corners */
-  background-color: #007bff; /* Blue background */
+  background-color: rgb(152, 212, 202); 
   color: #fff; /* White text */
   border: none; /* Remove border */
   cursor: pointer; /* Pointer cursor */
