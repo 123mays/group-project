@@ -4,19 +4,19 @@ body {
 
 html {
   font-family: "Lucida Console", Lucida, Monospace;
-  color: rgb(200, 200, 200);
+  color: #333;
 }
 
 select {
   font-family: "Lucida Console", Lucida, Monospace;
-  color: rgb(200, 200, 200);
+  color: #333;
   background: rgb(152, 212, 202);
   border-radius: 15px;
 }
 
 button {
   font-family: "Lucida Console", Lucida, Monospace;
-  color: rgb(200, 200, 200);
+  color: #333;
   background: rgb(152, 212, 202);
   border-radius: 15px;
 }
