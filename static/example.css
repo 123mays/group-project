@@ -2,24 +2,42 @@ body {
   background-image: "/static/background.jpg";
 }
 
-
 html {
   font-family: "Lucida Console", Lucida, Monospace;
-  color: rgb(245, 249, 248);
+  color: #333;
 }
 
-
-select{
+select {
   font-family: "Lucida Console", Lucida, Monospace;
-  color: rgb(245, 249, 248);
+  color: #333;
   background: rgb(152, 212, 202);
   border-radius: 15px;
 }
 
-
 button {
-    font-family: "Lucida Console", Lucida, Monospace;
-    color: rgb(245, 249, 248);
-    background: rgb(152, 212, 202);
-    border-radius: 15px;
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: #333;
+  background: rgb(152, 212, 202);
+  border-radius: 15px;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height viewport */
+}
+
+.big-button {
+  font-size: 1.5em; /* Increase font size */
+  padding: 20px 40px; /* Increase padding */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  background-color: rgb(152, 212, 202); 
+  color: #fff; /* White text */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.big-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
