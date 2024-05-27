@@ -44,7 +44,18 @@ def get_topic_options():
             password="spring482farm"
         )
         cur = conn.cursor()
-        query = "SELECT DISTINCT topic FROM twentyonetable ORDER BY topic"
+        query = query = """
+            SELECT DISTINCT topic FROM twentytable
+            UNION
+            SELECT DISTINCT topic FROM eighteentable
+            UNION
+            SELECT DISTINCT topic FROM nineteentable
+            UNION
+            SELECT DISTINCT topic FROM twentyonetable
+            UNION
+            SELECT DISTINCT topic FROM twentytwotable
+            ORDER BY topic
+        """
         cur.execute(query)
         rows = cur.fetchall()
         html = "".join([f'<option value="{row[0]}">{row[0]}</option>\n' for row in rows])
