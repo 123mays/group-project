@@ -11,126 +11,43 @@
   <p>
     <label for="Strat_1">Select Stratification:</label> 
 
+
     <select name="Year" id="Year">
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
+        {{DropdownOptions|safe}}
     </select>
+
 
     <select name="Age" id="Age"> 
-        <option value="4m - 5y">4m - 5y</option> 
-        <option value="1 - 5y">1 - 5y</option> 
-        <option value="6 - 9y">6 - 9y</option> 
-        <option value="6 - 11y">6 - 11y</option> 
-        <option value="6 - 14y">6 - 14y</option>
-        <option value="10 - 13y">10 - 13y</option>
-        <option value="12 - 17y">12 - 17y</option>
-        <option value="18 - 44y">18 - 44y</option>
-        <option value="0 - 44y">0 - 44y</option>
-        <option value="Age >= 65y">Age >= 65y</option>
+        {{DropdownOptions|safe}}
     </select>
+
 
     <select name="Sex" id="Sex"> 
-        <option value="Female">Female</option> 
-        <option value="Male">Male</option> 
+        {{DropdownOptions|safe}} 
     </select>
+
 
     <select name="Race/Ethnicity" id="Race/Ethnicity"> 
-        <option value="White, non-Hispanic">White, non-Hispanic</option> 
-        <option value="Black, non-Hispanic">Black, non-Hispanic</option> 
-        <option value="Asian, non-Hispanic">Asian, non-Hispanic</option> 
-        <option value="Asian or Pacific Islander, non-Hispanic">Asian or Pacific Islander, non-Hispanic</option> 
-        <option value="Hawaiian or Pacific Islander, non-Hispanic">Hawaiian or Pacific Islander, non-Hispanic</option>
-        <option value="American Indian or Alaska Native, non-Hispanic">American Indian or Alaska Native, non-Hispanic</option>
-        <option value="Multiracial, non-Hispanic">Multiracial, non-Hispanic</option>
-        <option value="Hispanic">Hispanic</option>
+        {{DropdownOptions|safe}}
     </select>
+
 
     <select name="Grade" id="Grade"> 
-        <option value="9th Grade">9th Grade</option> 
-        <option value="10th Grade">10th Grade</option> 
-        <option value="11th Grade">11th Grade</option> 
-        <option value="12th Grade">12th Grade</option> 
+        {{DropdownOptions|safe}} 
     </select>
+
 
     <select name="Location" id="Location"> 
-        <option value="United States">United States</option>
-        <option value="Alabama">Alabama</option>
-        <option value="Alaska">Alaska</option>
-        <option value="Arizona">Arizona</option>
-        <option value="Arkansas">Arkansas</option>
-        <option value="California">California</option>
-        <option value="Colorado">Colorado</option>
-        <option value="Connecticut">Connecticut</option>
-        <option value="Delaware">Delaware</option>
-        <option value="Florida">Florida</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Hawaii">Hawaii</option>
-        <option value="Idaho">Idaho</option>
-        <option value="Illinois">Illinois</option>
-        <option value="Indiana">Indiana</option>
-        <option value="Iowa">Iowa</option>
-        <option value="Kansas">Kansas</option>
-        <option value="Kentucky">Kentucky</option>
-        <option value="Louisiana">Louisiana</option>
-        <option value="Maine">Maine</option>
-        <option value="Maryland">Maryland</option>
-        <option value="Massachusetts">Massachusetts</option>
-        <option value="Michigan">Michigan</option>
-        <option value="Minnesota">Minnesota</option>
-        <option value="Mississippi">Mississippi</option>
-        <option value="Missouri">Missouri</option>
-        <option value="Montana">Montana</option>
-        <option value="Nebraska">Nebraska</option>
-        <option value="Nevada">Nevada</option>
-        <option value="New Hampshire">New Hampshire</option>
-        <option value="New Jersey">New Jersey</option>
-        <option value="New Mexico">New Mexico</option>
-        <option value="New York">New York</option>
-        <option value="North Carolina">North Carolina</option>
-        <option value="North Dakota">North Dakota</option>
-        <option value="Ohio">Ohio</option>
-        <option value="Oklahoma">Oklahoma</option>
-        <option value="Oregon">Oregon</option>
-        <option value="Pennsylvania">Pennsylvania</option>
-        <option value="Rhode Island">Rhode Island</option>
-        <option value="South Carolina">South Carolina</option>
-        <option value="South Dakota">South Dakota</option>
-        <option value="Tennessee">Tennessee</option>
-        <option value="Texas">Texas</option>
-        <option value="Utah">Utah</option>
-        <option value="Vermont">Vermont</option>
-        <option value="Virginia">Virginia</option>
-        <option value="Washington">Washington</option>
-        <option value="West Virginia">West Virginia</option>
-        <option value="Wisconsin">Wisconsin</option>
-        <option value="Wyoming">Wyoming</option> 
+        {{DropdownOptions|safe}}
     </select>
 
+
     <select name="Topic" id="Topic">
-        <option value="Alcohol">Alcohol</option>
-        <option value="Arthritis">Arthritis</option>
-        <option value="Asthma">Asthma</option>
-        <option value="Cancer">Cancer</option>
-        <option value="Cardiovascular Disease">Cardiovascular Disease</option>
-        <option value="Chronic Kidney Disease">Chronic Kidney Disease</option>
-        <option value="Chronic Obstructive Pulmonary Disease">Chronic Obstructive Pulmonary Disease</option>
-        <option value="Cognitive Health and Caregiving">Cognitive Health and Caregiving</option>
-        <option value="Diabetes">Diabetes</option>
-        <option value="Disability">Disability</option>
-        <option value="Health Status">Health Status</option>
-        <option value="Immunization">Immunization</option>
-        <option value="Maternal Health">Maternal Health</option>
-        <option value="Mental Health">Mental Health</option>
-        <option value="Nutrition, Physical Activity, and Weight Status">Nutrition, Physical Activity, and Weight Status</option>
-        <option value="Oral Health">Oral Health</option>
-        <option value="Sleep">Sleep</option>
-        <option value="Social Determinants of Health">Social Determinants of Health</option>
-        <option value="Tobacco">Tobacco</option>
+        {{DropdownOptions|safe}}
     </select>
   </p>
+
+
 
   <div class="center-container">
     <button class="big-button" onclick="addDropdownItem()">
