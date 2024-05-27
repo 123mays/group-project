@@ -6,15 +6,35 @@ app = Flask(__name__)
 
 def get_year_options():
     years = ['2018', '2019', '2020', '2021', '2022']
-    html = "".join([f'<option value="{year}">{year}</option>\n' for year in years])
-    return html
+    return "".join([f'<option value="{year}">{year}</option>\n' for year in years])
 
 def get_age_options():
     ages = ['4m - 5y', '1 - 5y', '6 - 9y', '6 - 11y', '6 - 14y', '10 - 13y', '12 - 17y', '18 - 44y', '0 - 44y', 'Age >= 65y']
-    html = "".join([f'<option value="{age}">{age}</option>\n' for age in ages])
-    return html
+    return "".join([f'<option value="{age}">{age}</option>\n' for age in ages])
 
-def get_disease_options():
+def get_sex_options():
+    sexes = ['Male', 'Female']
+    return "".join([f'<option value="{sex}">{sex}</option>\n' for sex in sexes])
+
+def get_race_ethnicity_options():
+    races = ['White', 'Black or African American', 'American Indian or Alaska Native', 'Asian', 'Native Hawaiian or Other Pacific Islander', 'Hispanic or Latino']
+    return "".join([f'<option value="{race}">{race}</option>\n' for race in races])
+
+def get_grade_options():
+    grades = ['10th', '11th', '12th']
+    return "".join([f'<option value="{grade}">{grade}</option>\n' for grade in grades])
+
+def get_location_options():
+    states = [
+        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
+        'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+        'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+        'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+        'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+    ]
+    return "".join([f'<option value="{state}">{state}</option>\n' for state in states])
+
+def get_topic_options():
     try:
         conn = psycopg2.connect(
             host="localhost",
@@ -39,15 +59,16 @@ def get_disease_options():
 
 @app.route('/test')
 def welcome():
-    year_options = get_year_options()
-    age_options = get_age_options()
-    disease_options = get_disease_options()
-    return render_template(
-        "homepage.html", 
-        YearOptions=year_options, 
-        AgeOptions=age_options, 
-        DiseaseOptions=disease_options
-    )
+    dropdown_options = {
+        'YearOptions': get_year_options(),
+        'AgeOptions': get_age_options(),
+        'SexOptions': get_sex_options(),
+        'RaceEthnicityOptions': get_race_ethnicity_options(),
+        'GradeOptions': get_grade_options(),
+        'LocationOptions': get_location_options(),
+        'TopicOptions': get_topic_options()
+    }
+    return render_template("homepage.html", **dropdown_options)
 
 if __name__ == '__main__':
     my_port = 5221
