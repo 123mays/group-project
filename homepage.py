@@ -110,7 +110,7 @@ def results():
             AND sex = %s
             AND race_ethnicity = %s
             AND grade = %s
-            AND location = %s
+            AND locationdesc = %s
             AND topic = %s
         """)
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
