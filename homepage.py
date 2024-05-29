@@ -106,10 +106,10 @@ def results():
         query = sql.SQL("""
             SELECT * FROM data_table
             WHERE year = %s
-            AND stratification1 = %s
-            AND stratification1 = %s
-            AND stratification1 = %s
-            AND stratification1 = %s
+            OR stratification1 = %s
+            OR stratification1 = %s
+            OR stratification1 = %s
+            OR stratification1 = %s
             AND locationdesc = %s
             AND topic = %s
         """)
