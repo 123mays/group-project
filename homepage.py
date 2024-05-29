@@ -81,6 +81,56 @@ def welcome():
     }
     return render_template("homepage.html", **dropdown_options)
 
+
+#the portion i added ##################################
+@app.route('/results', methods=['POST'])
+def results():
+    selected_year = request.form.get('year')
+    selected_age = request.form.get('age')
+    selected_sex = request.form.get('sex')
+    selected_race = request.form.get('race')
+    selected_grade = request.form.get('grade')
+    selected_location = request.form.get('location')
+    selected_topic = request.form.get('topic')
+
+    try:
+        conn = psycopg2.connect(
+            host="localhost",
+            port=5432,
+            database="akeelh",
+            user="akeelh",
+            password="spring482farm"
+        )
+        cur = conn.cursor()
+
+        query = sql.SQL("""
+            SELECT * FROM data_table
+            WHERE year = %s
+            AND age_group = %s
+            AND sex = %s
+            AND race_ethnicity = %s
+            AND grade = %s
+            AND location = %s
+            AND topic = %s
+        """)
+        cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
+        rows = cur.fetchall()
+
+        results = ""
+        for row in rows:
+            results += f"<p>{row}</p>\n"
+    except (Exception, Error) as error:
+        print("Error while connecting to PostgreSQL", error)
+        results = "Error loading data"
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+
+    return f"<html><body>{results}</body></html>"
+##############################################################
+
+
 if __name__ == '__main__':
     my_port = 5221
     app.run(host='0.0.0.0', port=my_port)
