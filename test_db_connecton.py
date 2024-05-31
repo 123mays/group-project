@@ -33,7 +33,7 @@ def test_database_connection():
             AND locationdesc = %s
             AND topic = %s
         """
-        cur.execute(query, ('2020', '18 - 44y', 'Male', 'White', '10th', 'California', 'Asthma'))
+        cur.execute(query, ('2020', '18 - 44y', 'Male', 'White', '10th', 'California', 'Diabetes'))
         print("Query executed successfully.")
         rows = cur.fetchall()
         print("Query results:")
