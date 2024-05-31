@@ -58,7 +58,9 @@ def get_topic_options():
         """
         cur.execute(query)
         rows = cur.fetchall()
-        html = "".join([f'<option value="{row[0]}">{row[0]}</option>\n' for row in rows])
+        html = ""
+        for row in rows:
+            html = html.join([f'<option value="{row[0]}">{row[0]}</option>\n'])
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
         html = '<option value="">Error loading data</option>\n'
