@@ -68,7 +68,7 @@ def get_topic_options():
             conn.close()
     return html
 
-@app.route('/test')
+@app.route('/test', methods=['GET'])
 def welcome():
     dropdown_options = {
         'YearOptions': get_year_options(),
