@@ -125,7 +125,7 @@ def results():
         """)
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
         rows = cur.fetchall()
-        if row in rowa: 
+        if row in rows: 
             results.append(row)
         else: 
             results= "No data found for the selected filters."
