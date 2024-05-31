@@ -54,7 +54,7 @@ def get_topic_options():
             SELECT DISTINCT topic FROM twentyonetable
             UNION
             SELECT DISTINCT topic FROM twentytwotable
-            ORDER BY topic
+            ORDER BY topic;
         """
         cur.execute(query)
         rows = cur.fetchall()

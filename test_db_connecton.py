@@ -47,5 +47,9 @@ def test_database_connection():
             conn.close()
             print("Database connection closed.")
 
+'''
 if __name__ == '__main__':
     test_database_connection()
+'''
+
+test_database_connection()
