@@ -127,7 +127,7 @@ def results():
             cur.close()
             conn.close()
 
-    return f"<html><body>{results}</body></html>"
+    return render_template("results.html", results=results)
 ##############################################################
 
 
