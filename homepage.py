@@ -104,12 +104,22 @@ def results():
         cur = conn.cursor()
 
         query = sql.SQL("""
-            SELECT * FROM data_table
+            SELECT * FROM (
+                SELECT * FROM twentytable
+                UNION
+                SELECT * FROM eighteentable
+                UNION
+                SELECT * FROM nineteentable
+                UNION
+                SELECT * FROM twentyonetable
+                UNION
+                SELECT * FROM twentytwotable
+            ) AS combined
             WHERE year = %s
+            AND (stratification1 = %s
             OR stratification1 = %s
             OR stratification1 = %s
-            OR stratification1 = %s
-            OR stratification1 = %s
+            OR stratification1 = %s)
             AND locationdesc = %s
             AND topic = %s
         """)
