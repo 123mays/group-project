@@ -1,58 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="/static/example.css">
-  <script src="/static/example.js"></script>
+    <meta charset="UTF-8">
+    <title>USA Chronic Disease Indicator</title>
+    <link rel="stylesheet" href="/static/example.css">
+    <script src="/static/example.js"></script>
 </head>
-
 <body>
-  <h1 class="my-class" id="hello">
-    USA Chronic Disease Indicator
-  </h1>
-
-  <p>
-    <label for="Strat_1">Select Stratification:</label> 
-
-
-    <select name="Year" id="Year">
-        {{YearOptions|safe}}
-    </select>
-
-
-    <select name="Age" id="Age"> 
-        {{AgeOptions|safe}}
-    </select>
-
-
-    <select name="Sex" id="Sex"> 
-        {{SexOptions|safe}} 
-    </select>
-
-
-    <select name="Race/Ethnicity" id="Race/Ethnicity"> 
-        {{RaceEthnicityOptions|safe}}
-    </select>
-
-
-    <select name="Grade" id="Grade"> 
-        {{GradeOptions|safe}} 
-    </select>
-
-
-    <select name="Location" id="Location"> 
-        {{LocationOptions|safe}}
-    </select>
-
-
-    <select name="Topic" id="Topic">
-        {{TopicOptions|safe}}
-    </select>
-  </p>
-
-
-<a href="http://stearns.mathcs.carleton.edu:5221/results" >
-  <div class="center-container">
-    <button class="big-button" onclick="addDropdownItem()" >
-      Enter
-    </button>
-  </div>
-</a>
+    <h1 class="my-class" id="hello">USA Chronic Disease Indicator</h1>
+    <form action="/results" method="post">
+        <p>
+            <label for="Year">Select Year:</label>
+            <select name="year" id="Year">{{ YearOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Age">Select Age:</label>
+            <select name="age" id="Age">{{ AgeOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Sex">Select Sex:</label>
+            <select name="sex" id="Sex">{{ SexOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Race">Select Race/Ethnicity:</label>
+            <select name="race" id="Race">{{ RaceEthnicityOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Grade">Select Grade:</label>
+            <select name="grade" id="Grade">{{ GradeOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Location">Select Location:</label>
+            <select name="location" id="Location">{{ LocationOptions|safe }}</select>
+        </p>
+        <p>
+            <label for="Topic">Select Topic:</label>
+            <select name="topic" id="Topic">{{ TopicOptions|safe }}</select>
+        </p>
+        <p>
+            <button type="submit">Enter</button>
+        </p>
+    </form>
 </body>
+</html>
