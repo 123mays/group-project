@@ -38,10 +38,10 @@ def get_topic_options():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5432,
-            database="akeelh",
-            user="akeelh",
-            password="spring482farm"
+            port=5117,
+            database="knopk",
+            user="knopk",
+            password="pencil597smile"
         )
         cur = conn.cursor()
         query = query = """
@@ -98,10 +98,10 @@ def results():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5432,
-            database="akeelh",
-            user="akeelh",
-            password="spring482farm"
+            port=5117,
+            database="knopk",
+            user="knopk",
+            password="pencil597smile"
         )
         cur = conn.cursor()
 
@@ -148,5 +148,5 @@ def results():
 
 
 if __name__ == '__main__':
-    my_port = 5221
+    my_port = 5117
     app.run(host='0.0.0.0', port=my_port)
