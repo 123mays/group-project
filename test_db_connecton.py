@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2 import sql, Error
 
 def test_database_connection():
+    print("Starting database connection test...")
     try:
         conn = psycopg2.connect(
             host="localhost",
@@ -10,6 +11,7 @@ def test_database_connection():
             user="akeelh",
             password="spring482farm"
         )
+        print("Connection established successfully.")
         cur = conn.cursor()
         query = """
             SELECT * FROM (
@@ -32,7 +34,9 @@ def test_database_connection():
             AND topic = %s
         """
         cur.execute(query, ('2020', '18 - 44y', 'Male', 'White', '10th', 'California', 'Asthma'))
+        print("Query executed successfully.")
         rows = cur.fetchall()
+        print("Query results:")
         for row in rows:
             print(row)
     except (Exception, Error) as error:
@@ -41,5 +45,7 @@ def test_database_connection():
         if conn:
             cur.close()
             conn.close()
+            print("Database connection closed.")
 
-test_database_connection()
+if __name__ == '__main__':
+    test_database_connection()
