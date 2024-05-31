@@ -54,7 +54,7 @@ def get_topic_options():
             SELECT DISTINCT topic FROM twentyonetable
             UNION
             SELECT DISTINCT topic FROM twentytwotable
-            ORDER BY topic;
+            ORDER BY topic
         """
         cur.execute(query)
         rows = cur.fetchall()
@@ -121,7 +121,7 @@ def results():
             OR stratification1 = %s
             OR stratification1 = %s)
             AND locationdesc = %s
-            AND topic = %s
+            AND topic = %s;
         """)
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
         rows = cur.fetchall()
