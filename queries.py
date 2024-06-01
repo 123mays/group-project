@@ -31,12 +31,13 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
                     WHEN stratificationid1 IN %s THEN 'Age'
                     WHEN stratificationid1 IN %s THEN 'Sex'
                     WHEN stratificationid1 IN %s THEN 'Race'
+                    
                 END AS stratification_category
             FROM {table}
             WHERE year = %s
             AND topic = %s
             AND stratificationid1 IN %s
-            AND stratificationid2 = %s
+            AND stratificationid1 = %s
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
