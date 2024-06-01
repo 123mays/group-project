@@ -83,7 +83,6 @@ def welcome():
 
 # the portion i added ##################################
 @app.route('/results', methods=['POST'])
-@app.route('/results', methods=['POST'])
 def results():
     selected_year = request.form.get('year')
     selected_age = request.form.get('age')
@@ -93,8 +92,19 @@ def results():
     selected_location = request.form.get('location')
     selected_topic = request.form.get('topic')
 
+    # Determine the table to query based on the year
+    if selected_year == "2020":
+        table_name = "twentytable"
+    elif selected_year == "2018":
+        table_name = "eighteentable"
+    elif selected_year == "2019":
+        table_name = "nineteentable"
+    elif selected_year == "2021":
+        table_name = "twentyonetable"
+   else: 
+        table_name = "twentytwotable"
+  
     data = []
-
     try:
         conn = psycopg2.connect(
             host="localhost",
@@ -105,26 +115,19 @@ def results():
         )
         cur = conn.cursor()
 
+        # Using the dynamically selected table name in the query
         query = sql.SQL("""
-            SELECT * FROM (
-                SELECT * FROM twentytable
-                UNION
-                SELECT * FROM eighteentable
-                UNION
-                SELECT * FROM nineteentable
-                UNION
-                SELECT * FROM twentyonetable
-                UNION
-                SELECT * FROM twentytwotable
-            ) AS combined
-            WHERE year = %s
-            OR (stratification1 = %s
-            OR stratification1 = %s
-            OR stratification1 = %s
-            OR stratification1 = %s)
-            AND locationdesc = %s
-            AND topic = %s
-        """)
+            SELECT * FROM {table}
+            WHERE 
+                year = %s AND 
+                (stratification1 = %s OR
+                stratification1 = %s OR
+                stratification1 = %s OR
+                stratification1 = %s) AND
+                locationdesc = %s AND
+                topic = %s
+        """).format(table=sql.Identifier(table_name))
+
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
         rows = cur.fetchall()
 
