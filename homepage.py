@@ -104,6 +104,9 @@ def results():
     else:
         table_name = "twentytwotable"
 
+    # Combine age, sex, and race into a single list for the IN clause
+    stratifications = [selected_age, selected_sex, selected_race]
+
     data = []
     try:
         conn = psycopg2.connect(
@@ -115,20 +118,18 @@ def results():
         )
         cur = conn.cursor()
 
-        # Using the dynamically selected table name in the query
+        # Adjust the query to use the IN clause for stratificationid1
         query = sql.SQL("""
             SELECT * FROM {table}
             WHERE 
                 year = %s AND
-                topic = %s OR
-                (stratification1 = %s OR
-                stratification1 = %s OR
-                stratification1 = %s OR
-                stratification1 = %s) AND
-                locationdesc = %s 
+                topic = %s AND
+                stratificationid1 IN %s AND
+                stratificationid2 = %s AND
+                locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
-        cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
+        cur.execute(query, (selected_year, selected_topic, tuple(stratifications), selected_grade, selected_location))
         rows = cur.fetchall()
 
         data = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in rows]
