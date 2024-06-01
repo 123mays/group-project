@@ -4,10 +4,10 @@ import psycopg2
 def query_db():
 	conn = psycopg2.connect(
 		host="localhost",
-        port=5217,
-        database="knopk",
-        user="knopk",
-        password="pencil597smile")
+		port=5432,
+		database="akeelh",
+		user="akeelh",
+		password="spring482farm")
 	cur = conn.cursor()
 
 

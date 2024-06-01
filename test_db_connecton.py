@@ -6,10 +6,10 @@ def test_database_connection():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5217,
-            database="knopk",
-            user="knopk",
-            password="pencil597smile"
+            port=5432,
+            database="akeelh",
+            user="akeelh",
+            password="spring482farm"
         )
         print("Connection established successfully.")
         cur = conn.cursor()
