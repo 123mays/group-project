@@ -28,27 +28,26 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
         query = sql.SQL("""
             SELECT *,
                 CASE
-                    WHEN stratificationid1 IN %s THEN 'Age'
-                    WHEN stratificationid1 IN %s THEN 'Sex'
-                    WHEN stratificationid1 IN %s THEN 'Race'
-                    
+                    WHEN stratificationid1 = %s THEN 'Age'
+                    WHEN stratificationid1 = %s THEN 'Sex'
+                    WHEN stratificationid1 = %s THEN 'Race'
+                    WHEN stratificationid1 = %s THEN 'Grade'
                 END AS stratification_category
             FROM {table}
             WHERE year = %s
             AND topic = %s
-            AND stratificationid1 IN %s
-            AND stratificationid1 = %s
+            AND (stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s)
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
         # Combine the stratification criteria
-        stratifications = [selected_age, selected_sex, selected_race]
+        stratifications = [selected_age, selected_sex, selected_race, selected_grade]
 
         # Execute the query
-        cur.execute(query, (tuple(selected_age), tuple(selected_sex), tuple(selected_race), selected_year, selected_topic, tuple(stratifications), selected_grade, selected_location))
+        cur.execute(query, (selected_age, selected_sex, selected_race, selected_grade, selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
         rows = cur.fetchall()
 
-        # Convert rows to a list of dictionaries and create separate columns for age, sex, and race
+        # Convert rows to a list of dictionaries and create separate columns for age, sex, race, and grade
         data = []
         for row in rows:
             row_dict = dict((cur.description[i][0], value) for i, value in enumerate(row))
@@ -58,6 +57,8 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
                 row_dict['Sex'] = selected_sex
             if row_dict['stratificationid1'] == selected_race:
                 row_dict['Race'] = selected_race
+            if row_dict['stratificationid1'] == selected_grade:
+                row_dict['Grade'] = selected_grade
             data.append(row_dict)
 
     except (Exception, Error) as error:
