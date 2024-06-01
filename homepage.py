@@ -120,7 +120,7 @@ def results():
             SELECT * FROM {table}
             WHERE 
                 year = %s AND
-                topic = %s
+                topic = %s AND
                 (stratification1 = %s OR
                 stratification1 = %s OR
                 stratification1 = %s OR
