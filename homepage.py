@@ -101,9 +101,9 @@ def results():
         table_name = "nineteentable"
     elif selected_year == "2021":
         table_name = "twentyonetable"
-   else: 
+    else:
         table_name = "twentytwotable"
-  
+
     data = []
     try:
         conn = psycopg2.connect(
