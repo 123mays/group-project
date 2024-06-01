@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+import psycopg2
+from psycopg2 import sql, Error
 from queries import query_db  # Import the query_db function
 
 app = Flask(__name__)
