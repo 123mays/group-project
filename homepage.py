@@ -81,7 +81,7 @@ def welcome():
         'LocationOptions': get_location_options(),
         'TopicOptions': get_topic_options()
     }
-    return render_template("homepage.html", **dropdown_options)
+ return render_template("homepage.html", **dropdown_options)
 
 
 #the portion i added ##################################
