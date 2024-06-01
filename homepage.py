@@ -38,7 +38,7 @@ def get_topic_options():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5117,
+            port=5217,
             database="knopk",
             user="knopk",
             password="pencil597smile"
@@ -72,7 +72,7 @@ def get_topic_options():
 
 @app.route('/test', methods=['GET'])
 def welcome():
-    dropdown_options = {
+   dropdown_options = {
         'YearOptions': get_year_options(),
         'AgeOptions': get_age_options(),
         'SexOptions': get_sex_options(),
@@ -81,8 +81,7 @@ def welcome():
         'LocationOptions': get_location_options(),
         'TopicOptions': get_topic_options()
     }
-    #return render_template("homepage.html", **dropdown_options)
-    return render_template("homepage.html", *dropdown_options)
+    return render_template("homepage.html", **dropdown_options)
 
 
 #the portion i added ##################################
@@ -99,7 +98,7 @@ def results():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5117,
+            port=5217,
             database="knopk",
             user="knopk",
             password="pencil597smile"
@@ -149,5 +148,5 @@ def results():
 
 
 if __name__ == '__main__':
-    my_port = 5117
+    my_port = 5217
     app.run(host='0.0.0.0', port=my_port)

@@ -4,7 +4,7 @@ import psycopg2
 def query_db():
     conn = psycopg2.connect(
         host="localhost",
-        port=5117,
+        port=5217,
         database="knopk",
         user="knopk",
         password="pencil597smile")
