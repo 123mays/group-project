@@ -119,7 +119,7 @@ def results():
         query = sql.SQL("""
             SELECT * FROM {table}
             WHERE 
-                year = %s AND 
+                year = %s OR 
                 (stratification1 = %s OR
                 stratification1 = %s OR
                 stratification1 = %s OR
