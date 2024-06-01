@@ -119,13 +119,13 @@ def results():
         query = sql.SQL("""
             SELECT * FROM {table}
             WHERE 
-                year = %s OR 
+                year = %s AND
+                topic = %s
                 (stratification1 = %s OR
                 stratification1 = %s OR
                 stratification1 = %s OR
                 stratification1 = %s) AND
-                locationdesc = %s AND
-                topic = %s
+                locationdesc = %s 
         """).format(table=sql.Identifier(table_name))
 
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
