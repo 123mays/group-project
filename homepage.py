@@ -58,7 +58,7 @@ def get_topic_options():
         """
         cur.execute(query)
         rows = cur.fetchall()
-        html = ""
+        html = []
         for row in rows:
             html = html.join([f'<option value="{row[0]}">{row[0]}</option>\n'])
     except (Exception, Error) as error:
