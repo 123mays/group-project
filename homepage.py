@@ -38,13 +38,13 @@ def get_topic_options():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5217,
-            database="knopk",
-            user="knopk",
-            password="pencil597smile"
+            port=5432,
+            database="akeelh",
+            user="akeelh",
+            password="spring482farm"
         )
         cur = conn.cursor()
-        query = query = """
+        query = """
             SELECT DISTINCT topic FROM twentytable
             UNION
             SELECT DISTINCT topic FROM eighteentable
@@ -58,9 +58,7 @@ def get_topic_options():
         """
         cur.execute(query)
         rows = cur.fetchall()
-        html = []
-        for row in rows:
-            html = html.join([f'<option value="{row[0]}">{row[0]}</option>\n'])
+        html = "".join([f'<option value="{row[0]}">{row[0]}</option>\n' for row in rows])
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
         html = '<option value="">Error loading data</option>\n'
@@ -72,7 +70,7 @@ def get_topic_options():
 
 @app.route('/test', methods=['GET'])
 def welcome():
-   dropdown_options = {
+    dropdown_options = {
         'YearOptions': get_year_options(),
         'AgeOptions': get_age_options(),
         'SexOptions': get_sex_options(),
@@ -83,8 +81,7 @@ def welcome():
     }
     return render_template("homepage.html", **dropdown_options)
 
-
-#the portion i added ##################################
+# the portion i added ##################################
 @app.route('/results', methods=['POST'])
 def results():
     selected_year = request.form.get('year')
@@ -95,13 +92,15 @@ def results():
     selected_location = request.form.get('location')
     selected_topic = request.form.get('topic')
 
+    results = ""
+
     try:
         conn = psycopg2.connect(
             host="localhost",
-            port=5217,
-            database="knopk",
-            user="knopk",
-            password="pencil597smile"
+            port=5432,
+            database="akeelh",
+            user="akeelh",
+            password="spring482farm"
         )
         cur = conn.cursor()
 
@@ -123,18 +122,17 @@ def results():
             OR stratification1 = %s
             OR stratification1 = %s)
             AND locationdesc = %s
-            AND topic = %s;
+            AND topic = %s
         """)
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
         rows = cur.fetchall()
-        if row in rows: 
-            results.append(row)
-        else: 
-            results= "No data found for the selected filters."
-            
-        results = ""
-        for row in rows:
-            results += f"<p>{row}</p>\n"
+
+        if rows:
+            for row in rows:
+                results += f"<p>{row}</p>\n"
+        else:
+            results = "No data found for the selected filters."
+
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
         results = "Error loading data"
@@ -146,7 +144,6 @@ def results():
     return render_template("results.html", results=results)
 ##############################################################
 
-
 if __name__ == '__main__':
-    my_port = 5217
+    my_port = 5221
     app.run(host='0.0.0.0', port=my_port)
