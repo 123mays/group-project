@@ -119,8 +119,8 @@ def results():
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
-            AND stratificationid1 = %s
-            AND stratificationid2 = %s
+            AND stratification1 = %s
+            AND stratification1 = %s
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
