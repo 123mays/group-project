@@ -118,7 +118,7 @@ def results():
                 SELECT * FROM twentytwotable
             ) AS combined
             WHERE year = %s
-            AND (stratification1 = %s
+            OR (stratification1 = %s
             OR stratification1 = %s
             OR stratification1 = %s
             OR stratification1 = %s)
