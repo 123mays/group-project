@@ -83,6 +83,7 @@ def welcome():
 
 # the portion i added ##################################
 @app.route('/results', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def results():
     selected_year = request.form.get('year')
     selected_age = request.form.get('age')
@@ -92,7 +93,7 @@ def results():
     selected_location = request.form.get('location')
     selected_topic = request.form.get('topic')
 
-    results = ""
+    data = []
 
     try:
         conn = psycopg2.connect(
@@ -127,21 +128,19 @@ def results():
         cur.execute(query, (selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic))
         rows = cur.fetchall()
 
-        if rows:
-            for row in rows:
-                results += f"<p>{row}</p>\n"
-        else:
-            results = "No data found for the selected filters."
+        data = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in rows]
 
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
-        results = "Error loading data"
+        data = []
+
     finally:
         if conn:
             cur.close()
             conn.close()
 
-    return render_template("results.html", results=results)
+    return render_template("results.html", results=data)
+
 ##############################################################
 
 if __name__ == '__main__':

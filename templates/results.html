@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,7 @@
 </head>
 <body>
     <h1>Results</h1>
-    {% if results == "Error loading data" %}
-        <p>{{ results }}</p>
-    {% else %}
+    {% if results %}
         <table>
             <thead>
                 <tr>
@@ -20,13 +18,15 @@
             <tbody>
                 {% for row in results %}
                     <tr>
-                        {% for key, value in row.items() %}
+                        {% for value in row.values() %}
                             <td>{{ value }}</td>
                         {% endfor %}
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+    {% else %}
+        <p>No data found for the selected filters.</p>
     {% endif %}
 </body>
 </html>
