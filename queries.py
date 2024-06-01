@@ -24,16 +24,13 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
         else:
             table_name = "twentytwotable"
 
-        # Combine the stratification criteria
-        stratifications = [selected_age, selected_sex, selected_race]
-
         # Build the query dynamically
         query = sql.SQL("""
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
             AND (stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s)
-            AND stratificationid2 = %s
+            AND stratificationid1 = %s
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
@@ -54,3 +51,7 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
             conn.close()
 
     return data
+
+# Example usage
+ data = query_db("2020", "Age", "Sex", "Race/Ethnicity", "Grade", "Location", "Topic")
+ print(data)
