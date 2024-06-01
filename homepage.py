@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import psycopg2
 from psycopg2 import sql, Error
-from queries import query_db  # Import the query_db function
 
 app = Flask(__name__)
 
@@ -92,8 +91,52 @@ def results():
     selected_location = request.form.get('location')
     selected_topic = request.form.get('topic')
 
-    # Query the database using the function from queries.py
-    data = query_db(selected_year, selected_age, selected_sex, selected_race, selected_grade, selected_location, selected_topic)
+    # Determine the table to query based on the year
+    if selected_year == "2020":
+        table_name = "twentytable"
+    elif selected_year == "2018":
+        table_name = "eighteentable"
+    elif selected_year == "2019":
+        table_name = "nineteentable"
+    elif selected_year == "2021":
+        table_name = "twentyonetable"
+    else:
+        table_name = "twentytwotable"
+
+    data = []
+    try:
+        conn = psycopg2.connect(
+            host="localhost",
+            port=5432,
+            database="akeelh",
+            user="akeelh",
+            password="spring482farm"
+        )
+        cur = conn.cursor()
+
+        # Adjust the query to properly filter by the chosen topic and stratifications
+        query = sql.SQL("""
+            SELECT * FROM {table}
+            WHERE year = %s
+            AND topic = %s
+            AND stratificationid1 = %s
+            AND stratificationid2 = %s
+            AND locationdesc = %s
+        """).format(table=sql.Identifier(table_name))
+
+        cur.execute(query, (selected_year, selected_topic, selected_age, selected_grade, selected_location))
+        rows = cur.fetchall()
+
+        data = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in rows]
+
+    except (Exception, Error) as error:
+        print("Error while connecting to PostgreSQL", error)
+        data = []
+
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
 
     return render_template("results.html", results=data)
 
