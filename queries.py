@@ -53,5 +53,5 @@ def query_db(selected_year, selected_age, selected_sex, selected_race, selected_
     return data
 
 # Example usage
- data = query_db("2020", "18 - 44y", "Male", "White", "Grade", "Idaho", "Cancer")
- print(data)
+data = query_db("2020", "18 - 44y", "Male", "White", "10th", "Idaho", "Cancer")
+print(data)
