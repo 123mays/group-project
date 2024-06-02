@@ -1,3 +1,6 @@
+# This is a Flask web application that connects to a PostgreSQL database to retrieve and display data based on user-selected filters.
+# It provides dropdown options for filtering data and displays results based on these selections.
+
 from flask import Flask, render_template, request
 import psycopg2
 from psycopg2 import sql, Error
@@ -123,8 +126,6 @@ def results():
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
         
-        sys.stderr.write(str(selected_sex) + " " + str(selected_age) + "  " + str(selected_race) + " " + str(selected_grade) )
-
         cur.execute(query, (selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
         rows = cur.fetchall()
 
