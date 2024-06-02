@@ -120,7 +120,7 @@ def results():
         cur = conn.cursor()
         
         query = sql.SQL("""
-            SELECT 
+         SELECT 
             year AS Year 
             topic AS Disease/Topic 
             stratification1 AS Stratification
@@ -129,12 +129,13 @@ def results():
             DataValue AS Data Value, 
             LowConfidenceLimit AS Low Confidence Limit, 
             HighConfidenceLimit AS High Confidence Limit
-            FROM {table}
-            WHERE year = %s
-            AND topic = %s
-            AND ( (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) )
-            AND locationdesc = %s
 
+        FROM {table}
+        WHERE year = %s
+        AND topic = %s
+        AND (stratification1 = %s OR stratification1 = %s OR stratification1 = %s OR stratification1 = %s)
+        AND locationdesc = %s
+            
         """).format(table=sql.Identifier(table_name))
         
         cur.execute(query, (selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
