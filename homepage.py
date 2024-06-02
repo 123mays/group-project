@@ -119,7 +119,7 @@ def results():
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
-            OR ( (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) )
+            AND ( (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) OR (stratification1 = %s) )
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
         
