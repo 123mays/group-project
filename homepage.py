@@ -118,7 +118,7 @@ def results():
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
-            OR (stratificationcategory1 = %s OR stratificationcategory1 = %s)
+            OR (stratification1 = %s OR stratification1 = %s) #this is where we have a problem 
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
