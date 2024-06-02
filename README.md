@@ -21,9 +21,9 @@
     python3 homepage.py
   ```
 2. Input this URL into the search bar of your web browser or search engine"
-   ```
-   http://137.22.5.171:5221/test
-   ```
+  ```
+ http://137.22.5.171:5221/test
+  ```
 
 # How to use the Website:
 	First, run the homepage.py file, as that is the python file that makes the website.
