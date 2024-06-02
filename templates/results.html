@@ -7,6 +7,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333;
         }
         table {
             width: 100%;
@@ -20,6 +22,13 @@
         }
         th {
             background-color: #f4f4f4;
+        }
+        .no-data {
+            color: #ff0000;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -45,7 +54,7 @@
             </tbody>
         </table>
     {% else %}
-        <p>Oops! No data found for the selected filters. Try adjusting your filters.</p>
+        <p class="no-data">Oh no! No data found for the selected filters. Please try adjusting your filters and search again!</p>
     {% endif %}
 </body>
 </html>
