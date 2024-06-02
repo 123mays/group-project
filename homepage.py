@@ -121,14 +121,14 @@ def results():
         
         query = sql.SQL("""
             SELECT 
-            year, 
-            topic, 
-            stratification1, 
-            locationdesc AS Location_Description, 
-            DataValueType AS Data_Value_Type, 
-            DataValue AS Data_Value, 
-            LowConfidenceLimit AS Low_Confidence_Limit, 
-            HighConfidenceLimit AS High_Confidence_Limit
+            year AS Year 
+            topic AS Disease/Topic 
+            stratification1 AS Stratification
+            locationdesc AS Location  
+            DataValueType AS Data Value Type, 
+            DataValue AS Data Value, 
+            LowConfidenceLimit AS Low Confidence Limit, 
+            HighConfidenceLimit AS High Confidence Limit
             FROM {table}
             WHERE year = %s
             AND topic = %s
