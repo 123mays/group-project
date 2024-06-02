@@ -118,7 +118,7 @@ def results():
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
-            OR (stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s)
+            AND (stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s)
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
