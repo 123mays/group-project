@@ -123,7 +123,7 @@ def results():
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
         
-        sys.stderr.write(str(query) + "     ")
+        sys.stderr.write(str(selected_sex) + " " str(selected_age) + "  " + str(selected_race) + " " + str(selected_grade) )
 
         cur.execute(query, (selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
         rows = cur.fetchall()
