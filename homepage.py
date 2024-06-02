@@ -114,7 +114,6 @@ def results():
             password="spring482farm"
         )
         cur = conn.cursor()
-        sys.stderr.write(query + "     ")
         
         query = sql.SQL("""
             SELECT * FROM {table}
@@ -123,6 +122,8 @@ def results():
             OR (stratification1 = %s OR stratification1 = %s OR stratification1 = %s OR stratification1 = %s)
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
+        
+        sys.stderr.write(query + "     ")
 
         cur.execute(query, (selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
         rows = cur.fetchall()
