@@ -15,11 +15,21 @@
 	Some examples of this could include chronic diseases by race, sex, ethnicity, age, and common comparisons between them. 
 	This could be chronic diseases in men versus women, chronic diseases in all age ranges, and by state.
 
+# Implementation: 
+ 1.  In the correct direcorty, run the following command in the terminal:
+   ```
+    python3 homepage.py
+  ```
+2. Input this URL into the search bar of your web browser or search engine"
+   ```
+   http://137.22.5.171:5221/test
+   ```
+
 # How to use the Website:
 	First, run the homepage.py file, as that is the python file that makes the website.
  	On the website, select the stratification(s) to further enhance your search.
   	Click on the enter button, and a response will be displayed on the screen.
-
+   
  ### What computer does this website work best on?
  	Works best on a windows computer with a screen size of 1920×1080
 
