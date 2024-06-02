@@ -118,11 +118,11 @@ def results():
             SELECT * FROM {table}
             WHERE year = %s
             AND topic = %s
-            OR (stratification1 = %s OR stratification1 = %s) #this is where we have a problem 
+            OR (stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s OR stratificationid1 = %s)
             AND locationdesc = %s
         """).format(table=sql.Identifier(table_name))
 
-        cur.execute(query, (selected_year, selected_topic, selected_age, selected_grade, selected_location))
+        cur.execute(query, (selected_year, selected_topic, selected_age, selected_sex, selected_race, selected_grade, selected_location))
         rows = cur.fetchall()
 
         data = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in rows]
