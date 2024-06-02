@@ -113,7 +113,8 @@ def results():
             password="spring482farm"
         )
         cur = conn.cursor()
-
+        sys.stderr.write(query + "     ")
+        
         query = sql.SQL("""
             SELECT * FROM {table}
             WHERE year = %s
