@@ -120,10 +120,15 @@ def results():
         cur = conn.cursor()
         
         query = sql.SQL("""
-            year AS Year 
-            topic AS Disease/ Topic
-            stratification AS Stratification 
-            locationdesc AS Location
+            SELECT 
+            year, 
+            topic, 
+            stratification1, 
+            locationdesc AS Location_Description, 
+            DataValueType AS Data_Value_Type, 
+            DataValue AS Data_Value, 
+            LowConfidenceLimit AS Low_Confidence_Limit, 
+            HighConfidenceLimit AS High_Confidence_Limit
             FROM {table}
             WHERE year = %s
             AND topic = %s
