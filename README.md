@@ -1,5 +1,5 @@
 # Overview:
-	This is a Group project for our software design class.
+	This is a group project for our software design class.
  	The website  we made is meant to make it easy to get the information you need about chronic disease indicators. 
  	This data can be used by those interested in different types of chronic diseases in the United States within the past ten years. 
 	It could be someone interested in collecting data about the distribution of chronic diseases across the US, people with chronic diseases, or any researcher looking for such data to compare or study different chronic diseases. 
