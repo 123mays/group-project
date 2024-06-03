@@ -42,3 +42,13 @@ button {
 .big-button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
+
+h2 {
+    font-family: "Lucida Console", Lucida, Monospace;
+    color: #333;
+}
+
+.ul {
+  font-family: "Lucida Console", Lucida, Monospace;
+  color: #333;
+}
