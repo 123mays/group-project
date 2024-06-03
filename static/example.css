@@ -1,3 +1,11 @@
+/*
+This CSS file styles a webpage with a consistent font and color scheme.
+It includes specific styles for the background, text, and form elements to create a visually cohesive user interface.
+
+
+Author: Hanane Akeel, Mays Neiroukh, Kellen Knop
+*/
+
 body {
   background-image: url(images/background.jpg);
   background-size: 1920px 1080px;
