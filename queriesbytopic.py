@@ -1,3 +1,12 @@
+"""
+This script connects to a PostgreSQL database and performs a series of queries on five different tables,
+each corresponding to a different year from 2018 to 2022. The script fetches records based on the 'topic' 
+field for various health-related topics such as 'Health Status', 'Arthritis', 'Disability', and more.
+
+Author: Hanane Akeel
+Date: June 3, 2024
+"""
+
 import psycopg2
 
 
