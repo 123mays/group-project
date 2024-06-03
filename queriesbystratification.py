@@ -1,3 +1,15 @@
+"""
+This script connects to a PostgreSQL database and performs a series of queries on five different tables, each corresponding to a different year from 2018 to 2022. The script fetches and prints records based on the 'stratificationcategory1' field for the categories 'Overall', 'Age', 'Sex', and 'Race/Ethnicity' for each year.
+
+The main steps are:
+1. Establishing a connection to the PostgreSQL database using the psycopg2 library.
+2. Executing SQL queries to fetch data from the tables 'eighteentable', 'nineteentable', 'twentytable', 'twentyonetable', and 'twentytwotable'.
+3. Printing the results of the queries.
+4. Closing the database connection.
+
+Author: Hanane Akeel
+"""
+
 import psycopg2
 
 def query_db():
