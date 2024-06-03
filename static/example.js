@@ -1,3 +1,11 @@
+/*
+This JavaScript file adds interactive functionality to a webpage by defining event handlers and 
+functions to respond to user interactions. 
+
+Author: Kellen Knop
+
+*/
+
 function addDropdownItem() {
   alert("Button clicked!");
 }
