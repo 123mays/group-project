@@ -1,7 +1,9 @@
-#This is a Flask web application that connects to a PostgreSQL database
-# to retrieve and display data based on user-selected filters.
-# It provides dropdown options for filtering data and displays results based on these selections.
-
+'''
+Authors: Mays Neiroukh, Kellen Knop
+This is a Flask web application that connects to a PostgreSQL database 
+to retrieve and display data based on user-selected filters.
+It provides dropdown options for filtering data and displays results based on these selections.
+'''
 from flask import Flask, render_template, request
 import psycopg2
 from psycopg2 import sql, Error
